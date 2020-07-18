@@ -19,7 +19,7 @@ STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
 
-CFLAGS  = -g -O2 -Wall -T LinkerScript.ld  -D USE_STDPERIPH_DRIVER 
+CFLAGS  = -g -O2 -Wall -T LinkerScript.ld  -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
@@ -48,8 +48,18 @@ clean:
 	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
 
 # Flash the STM32F4
-burn:
-	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
+
+check_os:
+ifeq ($(OS),Windows_NT)
+OSFLAG += WIN32
+else
+ifeq ($(shell uname -s),Linux)
+OSFLAG += LINUX
+endif
+endif
+
+print_os: check_os
+	@echo $(OSFLAG)
 
 erase:
 	$(STLINK)/st-flash erase
