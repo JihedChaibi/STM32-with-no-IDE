@@ -50,7 +50,7 @@ clean:
 # Flash the STM32F4
 burn:
 ifeq ($(OS),Windows_NT)
-	echo "You are using Windows, you can manually install stlink or use an external tool to"
+	@echo "You are using Windows, you can manually install stlink or use an external tool to"
 else
 ifeq ($(shell uname -s),Linux)
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
