@@ -1,6 +1,6 @@
 
 # Put your stlink folder here so make burn will work.
-STLINK = stlink/build/Release/bin
+STLINK = stlink/bin
 
 # Put your source files here (or *.c, etc)
 SRCS = src/*.c
@@ -50,6 +50,6 @@ clean:
 # Flash the STM32F4
 burn:
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
-	
+
 erase:
 	$(STLINK)/st-flash erase
