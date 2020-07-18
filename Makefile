@@ -19,7 +19,7 @@ STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
 
-CFLAGS  = -g -O2 -Wall -T LinkerScript.ld  -D USE_STDPERIPH_DRIVER 
+CFLAGS  = -g -O2 -Wall -T LinkerScript.ld  -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
@@ -50,7 +50,7 @@ clean:
 # Flash the STM32F4
 burn:
 ifeq ($(OS),Windows_NT)
-	@echo "Oops! looks like you are using Windows, which not supported yet :-("
+	@echo "Oops! looks like you are using Windows, which is not supported yet :-("
 	@echo "You can manually install stlink or use an external tool to program your microcontroller"
 	@echo "You can use this HEX file: output/$(PROJ_NAME).hex"
 
