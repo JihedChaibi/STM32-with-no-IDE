@@ -66,9 +66,11 @@ endif
 install_stlink:
 	@echo "installing stlink..."
 	@echo ""
-	cd stlink
-	cmake .
-	make
+	$(shell cd stlink;cmake .)
+	$(shell cd stlink;make)
+
+#cmake .
+#make
 
 
 check_os:

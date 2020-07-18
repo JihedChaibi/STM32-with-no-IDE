@@ -11,18 +11,20 @@ int main()
 {
 
 
-    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; 
-    
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+
     GPIOA->MODER = (1 << 10);        // set pin 13 to be general purpose output
     GPIOA->MODER &= ~(1 << 11);      // set pin 13 to be general purpose output
 
 
     for (;;) {
-       GPIOA->ODR |= (1 << 5);           // To  ggle the pin 
+       GPIOA->ODR |= (1 << 5);           // Set pin to HIGH
        delay();
        delay();
        delay();
-       GPIOA->ODR &= ~(1 << 5);           // To  ggle the pin 
+       GPIOA->ODR &= ~(1 << 5);           // Set pin to LOW
+       delay();
+       delay();
        delay();
     }
 

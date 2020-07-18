@@ -1,0 +1,71 @@
+Performing C SOURCE FILE Test C_SUPPORTS_STD_GNU18 failed with the following output:
+Change Dir: /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e854f/fast && /usr/bin/make  -f CMakeFiles/cmTC_e854f.dir/build.make CMakeFiles/cmTC_e854f.dir/build
+make[1]: Entering directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e854f.dir/src.c.o
+/usr/bin/cc   -std=gnu11 -DC_SUPPORTS_STD_GNU18   -std=gnu18 -o CMakeFiles/cmTC_e854f.dir/src.c.o   -c /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-std=gnu18'; did you mean '-std=gnu11'?
+CMakeFiles/cmTC_e854f.dir/build.make:85: recipe for target 'CMakeFiles/cmTC_e854f.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e854f.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Makefile:141: recipe for target 'cmTC_e854f/fast' failed
+make: *** [cmTC_e854f/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_WMISSING_VARIABLE_DECLARATIONS failed with the following output:
+Change Dir: /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e45e3/fast && /usr/bin/make  -f CMakeFiles/cmTC_e45e3.dir/build.make CMakeFiles/cmTC_e45e3.dir/build
+make[1]: Entering directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e45e3.dir/src.c.o
+/usr/bin/cc   -std=gnu11 -Wall -Wextra -Wshadow -D_FORTIFY_SOURCE=2 -fstrict-aliasing -Wundef -Wformat -Wformat-security -Wmaybe-uninitialized -DC_SUPPORTS_WMISSING_VARIABLE_DECLARATIONS   -Wmissing-variable-declarations -o CMakeFiles/cmTC_e45e3.dir/src.c.o   -c /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wmissing-variable-declarations'; did you mean '-Wmissing-declarations'?
+CMakeFiles/cmTC_e45e3.dir/build.make:85: recipe for target 'CMakeFiles/cmTC_e45e3.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e45e3.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Makefile:141: recipe for target 'cmTC_e45e3/fast' failed
+make: *** [cmTC_e45e3/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_WSHORTEN_64_TO_32 failed with the following output:
+Change Dir: /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b9d0c/fast && /usr/bin/make  -f CMakeFiles/cmTC_b9d0c.dir/build.make CMakeFiles/cmTC_b9d0c.dir/build
+make[1]: Entering directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b9d0c.dir/src.c.o
+/usr/bin/cc   -std=gnu11 -Wall -Wextra -Wshadow -D_FORTIFY_SOURCE=2 -fstrict-aliasing -Wundef -Wformat -Wformat-security -Wmaybe-uninitialized -DC_SUPPORTS_WSHORTEN_64_TO_32   -Wshorten-64-to-32 -o CMakeFiles/cmTC_b9d0c.dir/src.c.o   -c /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wshorten-64-to-32'
+CMakeFiles/cmTC_b9d0c.dir/build.make:85: recipe for target 'CMakeFiles/cmTC_b9d0c.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_b9d0c.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Makefile:141: recipe for target 'cmTC_b9d0c/fast' failed
+make: *** [cmTC_b9d0c/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the function __stack_chk_fail exists in the ssp failed with the following output:
+Change Dir: /home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8894d/fast && /usr/bin/make  -f CMakeFiles/cmTC_8894d.dir/build.make CMakeFiles/cmTC_8894d.dir/build
+make[1]: Entering directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8894d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -std=gnu11 -Wall -Wextra -Wshadow -D_FORTIFY_SOURCE=2 -fstrict-aliasing -Wundef -Wformat -Wformat-security -Wmaybe-uninitialized -Wimplicit-function-declaration -Wredundant-decls -fPIC -O2 -Werror -DCHECK_FUNCTION_EXISTS=__stack_chk_fail   -o CMakeFiles/cmTC_8894d.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.17/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8894d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8894d.dir/link.txt --verbose=1
+/usr/bin/cc  -std=gnu11 -Wall -Wextra -Wshadow -D_FORTIFY_SOURCE=2 -fstrict-aliasing -Wundef -Wformat -Wformat-security -Wmaybe-uninitialized -Wimplicit-function-declaration -Wredundant-decls -fPIC -O2 -Werror -DCHECK_FUNCTION_EXISTS=__stack_chk_fail    CMakeFiles/cmTC_8894d.dir/CheckFunctionExists.c.o  -o cmTC_8894d  -lssp 
+/usr/bin/ld: cannot find -lssp
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8894d.dir/build.make:106: recipe for target 'cmTC_8894d' failed
+make[1]: *** [cmTC_8894d] Error 1
+make[1]: Leaving directory '/home/geek-tn/Desktop/STM32-with-no-IDE/stlink/CMakeFiles/CMakeTmp'
+Makefile:141: recipe for target 'cmTC_8894d/fast' failed
+make: *** [cmTC_8894d/fast] Error 2
+
+
+
