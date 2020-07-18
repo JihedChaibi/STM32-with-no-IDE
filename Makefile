@@ -49,22 +49,25 @@ clean:
 
 # Flash the STM32F4
 burn:
+ifeq ($(OS),Windows_NT)
+echo "You are using Windows, you can manually install stlink or use an external tool to"
+else
+ifeq ($(shell uname -s),Linux)
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
-
+endif
+endif
 
 check_os:
 ifeq ($(OS),Windows_NT)
-OSFLAG += WIN32
+OSFLAG += Windows
 else
 ifeq ($(shell uname -s),Linux)
-OSFLAG += LINUX
+OSFLAG += Linux
 endif
 endif
 
 print_os: check_os
 	@echo $(OSFLAG)
-
-
 
 erase:
 	$(STLINK)/st-flash erase
