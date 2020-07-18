@@ -51,5 +51,20 @@ clean:
 burn:
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
 
+
+check_os:
+ifeq ($(OS),Windows_NT)
+OSFLAG += WIN32
+else
+ifeq ($(shell uname -s),Linux)
+OSFLAG += LINUX
+endif
+endif
+
+print_os: check_os
+	@echo $(OSFLAG)
+
+
+
 erase:
 	$(STLINK)/st-flash erase
