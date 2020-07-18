@@ -20,6 +20,8 @@ int main()
     for (;;) {
        GPIOA->ODR |= (1 << 5);           // To  ggle the pin 
        delay();
+       delay();
+       delay();
        GPIOA->ODR &= ~(1 << 5);           // To  ggle the pin 
        delay();
     }

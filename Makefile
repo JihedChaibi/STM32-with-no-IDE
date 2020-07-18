@@ -50,9 +50,10 @@ clean:
 # Flash the STM32F4
 burn:
 ifeq ($(OS),Windows_NT)
-	@echo "Oops! looks like you are using Windows, you can manually install stlink or use an external tool to program your microcontroller"
+	@echo "Oops! looks like you are using Windows, which not supported yet :-("
+	@echo "You can manually install stlink or use an external tool to program your microcontroller"
 	@echo "You can use this HEX file: output/$(PROJ_NAME).hex"
-	@echo "Good luck!"
+	
 else
 ifeq ($(shell uname -s),Linux)
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
