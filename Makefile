@@ -53,12 +53,23 @@ ifeq ($(OS),Windows_NT)
 	@echo "Oops! looks like you are using Windows, which not supported yet :-("
 	@echo "You can manually install stlink or use an external tool to program your microcontroller"
 	@echo "You can use this HEX file: output/$(PROJ_NAME).hex"
-	
+
 else
 ifeq ($(shell uname -s),Linux)
+	@echo "If stlink is no istalled, type 'make install_stlink'"
+	@echo ""
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
+endif 
 endif
-endif
+
+
+install_stlink:
+	@echo "installing stlink..."
+	@echo ""
+	cd stlink
+	cmake .
+	make
+
 
 check_os:
 ifeq ($(OS),Windows_NT)
