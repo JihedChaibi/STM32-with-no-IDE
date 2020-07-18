@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libstlink.a  CMakeFiles/stlink-static.dir/src/common.c.o CMakeFiles/stlink-static.dir/src/stlink-lib/chipid.c.o CMakeFiles/stlink-static.dir/src/stlink-lib/flash_loader.c.o CMakeFiles/stlink-static.dir/src/stlink-lib/logging.c.o CMakeFiles/stlink-static.dir/src/stlink-lib/md5.c.o CMakeFiles/stlink-static.dir/src/stlink-lib/sg.c.o CMakeFiles/stlink-static.dir/src/stlink-lib/usb.c.o
+/usr/bin/ranlib lib/libstlink.a
