@@ -69,8 +69,9 @@ install_stlink:
 	$(shell cd stlink;cmake .)
 	$(shell cd stlink;make)
 
-#cmake .
-#make
+
+erase:
+	$(STLINK)/st-flash erase
 
 
 check_os:
@@ -84,6 +85,3 @@ endif
 
 print_os: check_os
 	@echo $(OSFLAG)
-
-erase:
-	$(STLINK)/st-flash erase
