@@ -20,11 +20,7 @@ int main()
     for (;;) {
        GPIOA->ODR |= (1 << 5);           // Set pin to HIGH
        delay();
-       delay();
-       delay();
        GPIOA->ODR &= ~(1 << 5);           // Set pin to LOW
-       delay();
-       delay();
        delay();
     }
 
