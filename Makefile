@@ -1,18 +1,17 @@
-
-# Put your stlink folder here so make burn will work.
+# Stlink folder
 STLINK = stlink/bin
 
-# Put your source files here (or *.c, etc)
+# Source files here (or *.c, etc)
 SRCS = src/*.c
 SRCS += Drivers/src/*.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=first_test
 
-# Put your STM32F4 library code directory here
+# STM32F4 library code directory
 STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
 
-# Normally you shouldn't need to change anything below this line!
+
 #######################################################################################
 
 
@@ -40,7 +39,7 @@ all: first_test
 first_test: $(PROJ_NAME).elf
 
 $(PROJ_NAME).elf: $(SRCS)
-	$(CC) $(CFLAGS) $^ -o output/$@ 
+	$(CC) $(CFLAGS) $^ -o output/$@
 	$(OBJCOPY) -O ihex output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex
 	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
 
@@ -59,7 +58,7 @@ ifeq ($(shell uname -s),Linux)
 	@echo "If stlink is no istalled, type 'make install_stlink'"
 	@echo ""
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
-endif 
+endif
 endif
 
 
