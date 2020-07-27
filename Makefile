@@ -23,10 +23,9 @@ CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
 
-CFLAGS += -I inc/
-CFLAGS += -I Drivers/inc
-CFLAGS += -I CMSIS/ST/STM32F4xx/Include
-CFLAGS += -I CMSIS/Include
+CFLAGS += -I include/
+CFLAGS += -I Drivers/inc/
+CFLAGS += -I CMSIS/Include/
 
 SRCS +=  Startup/startup_stm32.S
 
@@ -65,8 +64,8 @@ endif
 install_stlink:
 	@echo "installing stlink..."
 	@echo ""
-	$(shell cd stlink;cmake .)
-	$(shell cd stlink;make)
+	$(shell cd stlink && cmake .)
+	$(shell cd stlink && make)
 
 
 erase:
