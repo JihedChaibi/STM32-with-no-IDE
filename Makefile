@@ -18,7 +18,7 @@ STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
 
-CFLAGS  = -g -O2 -Wall -T LinkerScript.ld  -D USE_STDPERIPH_DRIVER
+CFLAGS  = -g -O2 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
@@ -56,7 +56,7 @@ else
 ifeq ($(shell uname -s),Linux)
 	@echo "If stlink is no istalled, type 'make install_stlink'"
 	@echo ""
-	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
+	$(STLINK)/st-flash write output/$(PROJ_NAME).bin 0x08000000
 endif
 endif
 
