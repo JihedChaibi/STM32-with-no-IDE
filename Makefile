@@ -1,7 +1,7 @@
 # Stlink folder
 STLINK = stlink/bin
 
-# Source files here (or *.c, etc)
+# Source files here
 SRCS = src/*.c
 SRCS += Drivers/src/*.c
 
