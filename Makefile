@@ -14,7 +14,6 @@ STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
 
 #######################################################################################
 
-
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
 
@@ -63,9 +62,9 @@ endif
 
 install_stlink:
 	@echo "installing stlink..."
-	@echo ""
-	$(shell cd stlink && cmake .)
-	$(shell cd stlink && make)
+	@echo "TODO.."
+#$(shell cd stlink && cmake .)
+#$(shell cd stlink && make)
 
 
 erase:
