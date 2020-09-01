@@ -19,7 +19,7 @@ What you will need:
 
 ✪ GNU ARM Embedded Toolchain (Compiler/Other Tools)
 
-✪ ST-Link (if you want to flash from the command line)
+✪ ST-Link (If You Want to Flash Directly From the Command Line)
 
 ✪ CMake (Required to install ST-Link Programming Tool)
 
