@@ -1,8 +1,8 @@
-# Yes, IDEs make the job easier..
+# Yes, IDEs make the job easier, but..
 
-## But if you are an embedded developer, you should know what is going under the hood.
+## If you are an embedded developer, you should know what is going under the hood.
 
-### Get rid of that IDE and do it like a boss
+### Get rid of that IDE and do it like a boss  :sunglasses: 
 
 ##
 
@@ -19,13 +19,15 @@ What you will need:
 
 ✪ GNU ARM Embedded Toolchain (Compiler/Other Tools)
 
-✪ ST-Link (If You Want to Flash Directly From the Command Line)
+✪ ST-Link* (If You Want to Flash Directly From the Command Line)
 
 ✪ CMake (Required to install ST-Link Programming Tool)
 
+
+###### :exclamation: :neutral_face: * IMPORTANT NOTE : For the time being ST-LINK only works for Linux users, I am currently working on the Windows part, stay tuned. :pray:   
+
+
 ##
-
-
 
 
 ## STEPS: 
