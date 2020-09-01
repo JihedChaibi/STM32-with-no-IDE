@@ -26,7 +26,7 @@ What you will need:
 ##
 
 
-STEPS: 
+# STEPS: 
 
 
 * DOWNLOAD ST-LINK PROGRAMMING TOOL :
