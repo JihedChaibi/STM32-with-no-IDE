@@ -60,11 +60,13 @@ endif
 endif
 
 
+download_stlink:
+	$(shell git clone https://github.com/stlink-org/stlink)
+
 install_stlink:
-	@echo "installing stlink..."
-	@echo "TODO.."
-#$(shell cd stlink && cmake .)
-#$(shell cd stlink && make)
+	cmake stlink/. stlink/
+	cd stlink
+	make
 
 
 erase:
