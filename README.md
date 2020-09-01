@@ -13,4 +13,4 @@ What you will need:
 
 ✪ GNU Arm Embedded Toolchain
 
-✪ ST-Link
+✪ ST-Link (if you want to flash from the command line)
