@@ -17,7 +17,7 @@ What you will need:
 
 ✪ GNU Make (Makefiles)
 
-✪ GNU ARM Embedded Toolchain
+✪ GNU ARM Embedded Toolchain (Compiler/Other Tools)
 
 ✪ ST-Link (if you want to flash from the command line)
 
