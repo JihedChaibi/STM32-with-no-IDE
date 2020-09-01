@@ -13,7 +13,7 @@ What you will need:
 
 ✪ Any Text Editor (I have used VSCode)
 
-✪ CMSIS / HAL Drivers (Use your own HAL :sunglasses: )  
+✪ CMSIS / HAL Drivers (You can use your own HAL!)  
 
 ✪ GNU Make (Makefiles)
 
