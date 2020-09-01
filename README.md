@@ -26,30 +26,36 @@ What you will need:
 ##
 
 
+
+
 ## STEPS: 
 
 * DOWNLOAD ST-LINK PROGRAMMING TOOL :
 
-  $ make download_stlink
-  
+```
+$ make download_stlink
+```
+
     
 * INSTALL ST-LINK PROGRAMMING TOOL :
-
+```
   $ make install_stlink
-  
+```
+
   
 * COMPILE :
-
+```
   $ make 
-
+```
 * FLASH :
-
+```
   $ make burn
-
+```
 * CLEAN BINARIES :
-
+```
   $ make clean
-
+```
 * ERASE CHIP :
-
+```
   $ make erase
+```
