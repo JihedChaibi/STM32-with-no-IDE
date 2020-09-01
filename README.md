@@ -15,6 +15,8 @@
 
 ✪ CMSIS / HAL Drivers (You can use your own HAL!)  
 
+✪ Startup File + Linker Script (You can always use you own)
+
 ✪ GNU Make (Makefiles)
 
 ✪ GNU ARM Embedded Toolchain (Compiler/Other Tools)
