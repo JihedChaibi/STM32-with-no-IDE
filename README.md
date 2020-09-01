@@ -15,11 +15,13 @@ What you will need:
 
 ✪ CMSIS / HAL Drivers (Use your own HAL :sunglasses: )  
 
-✪ GNU Make
+✪ GNU Make (Makefiles)
 
-✪ GNU Arm Embedded Toolchain
+✪ GNU ARM Embedded Toolchain
 
 ✪ ST-Link (if you want to flash from the command line)
+
+✪ CMake (Required to install ST-Link Programming Tool)
 
 ##
 
