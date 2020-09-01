@@ -30,12 +30,25 @@ What you will need:
 
 ## STEPS: 
 
+
+* DOWNLOAD (CLONE) THIS REPOSITORY :
+
+```
+$ git clone https://github.com/JihedChaibi/STM32-with-no-IDE
+```
+
+
+* ENTRE THE STM32-with-no-IDE FOLDER :
+
+```
+$ cd STM32-with-no-IDE
+```
+
 * DOWNLOAD ST-LINK PROGRAMMING TOOL :
 
 ```
 $ make download_stlink
 ```
-
     
 * INSTALL ST-LINK PROGRAMMING TOOL :
 ```
@@ -51,11 +64,13 @@ $ make download_stlink
 ```
   $ make burn
 ```
-* CLEAN BINARIES :
+* CLEAN BINARIES (OPTIONAL) :
 ```
   $ make clean
 ```
-* ERASE CHIP :
+* ERASE CHIP (OPTIONAL) :
 ```
   $ make erase
 ```
+
+
