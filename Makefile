@@ -64,9 +64,8 @@ download_stlink:
 	$(shell git clone https://github.com/stlink-org/stlink)
 
 install_stlink:
-	cmake stlink/. stlink/
-	cd stlink
-	make
+	cd stlink && cmake .
+	cd stlink && make
 
 
 erase:
