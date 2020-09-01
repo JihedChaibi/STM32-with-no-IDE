@@ -56,7 +56,7 @@ $ make download_stlink
 ```
 
   
-* COMPILE :
+* COMPILE THE DEMO CODE (src/main.c) :
 ```
   $ make 
 ```
