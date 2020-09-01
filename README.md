@@ -11,7 +11,7 @@
 
 ## What you will need : 
 
-✪ Any Text Editor (I have used VSCode)
+✪ Any Text Editor
 
 ✪ CMSIS / HAL Drivers (You can use your own HAL!)  
 
