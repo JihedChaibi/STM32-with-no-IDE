@@ -32,7 +32,7 @@ What you will need:
   $ make clean
 
   
-* INSTALL ST-LINK PROGRAMMER :
+* INSTALL ST-LINK PROGRAMMING TOOL :
 
   $ make install_stlink
 
