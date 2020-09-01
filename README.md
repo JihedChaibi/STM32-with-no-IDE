@@ -7,7 +7,8 @@ What you will need:
 
 ✪ Any Text Editor (I have used VSCode)
 
-✪ CMSIS / HAL Drivers (Use your own HAL :sunglasses:) 
+✪ CMSIS / HAL Drivers (Use your own HAL :sunglasses: )  
+
 ✪ GNU Make
 
 ✪ GNU Arm Embedded Toolchain
