@@ -68,7 +68,7 @@ $ make download_stlink
 ```
   $ make clean
 ```
-* ERASE CHIP (OPTIONAL) :
+* ERASE THE CHIP'S CONTENT (OPTIONAL) :
 ```
   $ make erase
 ```
