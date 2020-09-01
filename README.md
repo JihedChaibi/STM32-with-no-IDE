@@ -1,5 +1,6 @@
-# Are you an embedded developer?
-# Get rid of that IDE!
+Yes, IDEs make the job easier..
+But if you are an embedded developer, you should know what is going under the hood
+Get rid of that IDE!
 
 ![Image of nucleo](https://i.ibb.co/qxH7V1D/FLLL.jpg)
 
