@@ -40,7 +40,8 @@ $(PROJ_NAME).elf: $(SRCS)
 	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
 
 clean:
-	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
+	@rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
+	@echo "clean as a whistle!"
 
 # Flash the STM32F4
 burn: first_test
