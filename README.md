@@ -25,22 +25,31 @@ What you will need:
 
 ##
 
-* COMPILE :
 
-  $ make 
+STEPS: 
+
+
+* DOWNLOAD ST-LINK PROGRAMMING TOOL :
+
+  $ make download_stlink
   
-* CLEAN BINARIES :
-
-  $ make clean
-
-  
+    
 * INSTALL ST-LINK PROGRAMMING TOOL :
 
   $ make install_stlink
+  
+  
+* COMPILE :
+
+  $ make 
 
 * FLASH :
 
   $ make burn
+
+* CLEAN BINARIES :
+
+  $ make clean
 
 * ERASE CHIP :
 
