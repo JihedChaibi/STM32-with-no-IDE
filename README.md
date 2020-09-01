@@ -38,7 +38,7 @@ $ git clone https://github.com/JihedChaibi/STM32-with-no-IDE
 ```
 
 
-* ENTRE THE STM32-with-no-IDE FOLDER :
+* ENTER THE STM32-with-no-IDE FOLDER :
 
 ```
 $ cd STM32-with-no-IDE
