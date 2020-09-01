@@ -1,3 +1,5 @@
+# Makefile: Jihed Chaibi - 2020
+
 # Stlink folder
 STLINK = stlink/bin
 
@@ -7,10 +9,6 @@ SRCS += Drivers/src/*.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=first_test
-
-# STM32F4 library code directory
-STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
-
 
 #######################################################################################
 
