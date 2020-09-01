@@ -24,7 +24,7 @@ What you will need:
 ✪ CMake (Required to install ST-Link Programming Tool)
 
 
-###### :exclamation: :neutral_face: * IMPORTANT NOTE : For the time being ST-LINK only works for Linux users, I am currently working on the Windows part, stay tuned. :pray:   
+###### :exclamation: :neutral_face: * IMPORTANT NOTE : For the time being ST-LINK only works for Linux users (you can still use any external programming tool, if you're a fan of GUIs). I am currently working on the Windows part stay tuned. :pray:
 
 
 ##
