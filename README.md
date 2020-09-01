@@ -9,7 +9,7 @@
 ![Image of nucleo](https://i.ibb.co/qxH7V1D/FLLL.jpg)
 
 
-What you will need: 
+What you will need : 
 
 ✪ Any Text Editor (I have used VSCode)
 
