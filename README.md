@@ -26,5 +26,20 @@ What you will need:
 * COMPILE :
 
   $ make 
+  
+* CLEAN BINARIES :
 
-*
+  $ make clean
+
+  
+* INSTALL ST-LINK PROGRAMMER :
+
+  $ make install_stlink
+
+* FLASH :
+
+  $ make burn
+
+* ERASE CHIP :
+
+  $ make erase
