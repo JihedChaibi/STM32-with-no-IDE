@@ -77,6 +77,10 @@ $ make download_stlink
   $ make erase
 ```
 
+## Near future goals : 
+
+Supporting more microcontrollers families, debugging from the command line, using CMake
+
 ![Image of nucleo](https://i.redd.it/5ao2f5ufjzf51.jpg)
 
 
