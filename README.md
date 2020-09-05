@@ -81,7 +81,7 @@ $ make download_stlink
 
 - Supporting more microcontrollers families
 - Debugging from the command line
-- Using CMake/Ninja
+- Using CMake+GNU Make or CMake+Ninja as a main builder 
 
 ![Image of nucleo](https://i.redd.it/5ao2f5ufjzf51.jpg)
 
