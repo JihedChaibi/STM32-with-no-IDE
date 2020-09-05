@@ -52,7 +52,7 @@ ifeq ($(OS),Windows_NT)
 
 else
 ifeq ($(shell uname -s),Linux)
-	@echo "If stlink is no istalled, type 'make install_stlink'"
+	@echo "If st-link is not istalled, type 'make install_stlink'"
 	@echo ""
 	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
 endif
