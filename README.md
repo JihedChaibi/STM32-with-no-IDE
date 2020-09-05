@@ -77,4 +77,7 @@ $ make download_stlink
   $ make erase
 ```
 
+![Image of nucleo](https://i.redd.it/5ao2f5ufjzf51.jpg)
+
+
 
