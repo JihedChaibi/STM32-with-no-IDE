@@ -77,7 +77,7 @@ $ make download_stlink
   $ make erase
 ```
 
-## Near future goals : 
+## Short term goals : 
 
 - Supporting more microcontrollers families
 - Debugging from the command line
