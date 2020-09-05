@@ -21,7 +21,7 @@
 
 ✪ GNU ARM Embedded Toolchain (Compiler/Other Tools)
 
-✪ ST-Link* (If You Want to Flash Directly From the Command Line)
+✪ ST-Link* (If You Want to Flash Directly From the Command Line): (Download/Install steps are below)
 
 ✪ CMake (Required to install ST-Link Programming Tool)
 
