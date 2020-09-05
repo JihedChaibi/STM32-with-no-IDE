@@ -1,11 +1,8 @@
 # Makefile: Jihed Chaibi - 2020
 
+
 # Stlink folder
 STLINK = stlink/bin
-
-# Source files here
-SRCS = src/*.c
-SRCS += Drivers/src/*.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=first_test
@@ -15,18 +12,27 @@ PROJ_NAME=first_test
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
 
+# Source Files
+
+SRCS = src/*.c
+SRCS += Drivers/src/*.c
+
+SRCS +=  Startup/startup_stm32.S
+
+# Compiler Flags
+
 CFLAGS  = -g -O2 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
 
+# Header Files (-I flag)
+
 CFLAGS += -I include/
 CFLAGS += -I Drivers/inc/
 CFLAGS += -I CMSIS/Include/
 
-SRCS +=  Startup/startup_stm32.S
-
-
+#######################################################################################
 
 .PHONY: first_test
 
