@@ -32,6 +32,18 @@ export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
     OPENOCD_ERASE_CMDS += -c shutdown
 
 
+#RUN ##################
+    OPENOCD_RUN_CMDS += -c 'reset halt' 
+    OPENOCD_RUN_CMDS += -c 'sleep 10' 
+    OPENOCD_RUN_CMDS += -c 'reset run' 
+    OPENOCD_RUN_CMDS += -c 'sleep 10'  
+    OPENOCD_RUN_CMDS += -c shutdown 
+
+
+
+.openocd: 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) 
+
 .flash:
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS) 
 
@@ -40,6 +52,11 @@ export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_ERASE_CMDS) 
 
 
+.run: 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_RUN_CMDS) 
+
+gdb:
+	gdb-multiarch -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
 
 
 #######################
@@ -66,7 +83,7 @@ SRCS +=  Startup/startup_stm32.S
 
 # Compiler Flags
 
-CFLAGS  = -g -O2 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
+CFLAGS  = -g -O0 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
@@ -86,7 +103,7 @@ all: first_test
 first_test: $(PROJ_NAME).elf
 
 $(PROJ_NAME).elf: $(SRCS)
-	$(CC) $(CFLAGS) $^ -o output/$@
+	$(CC) $(CFLAGS) $^ -o output/$@ -o output/$(PROJ_NAME).s
 	$(OBJCOPY) -O ihex output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex
 	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
 
