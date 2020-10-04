@@ -20,7 +20,7 @@ int main()
     // ENABLE THE AHB1 (GPIOA) CLOCK
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
 
-    GPIOA->MODER = (1 << 10);        // set pin 13 to be general purpose output
+    GPIOA->MODER |= (1 << 10);        // set pin 13 to be general purpose output
     GPIOA->MODER &= ~(1 << 11);      // set pin 13 to be general purpose output
 
 
