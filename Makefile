@@ -1,6 +1,51 @@
 # Makefile: Jihed Chaibi - 2020
 
 
+
+####OPENOCD SHIT#####
+
+
+HEXFILE = ./output/first_test.hex
+ELFFILE = ./output/first_test.elf
+
+OPENOCD_PATH = /usr/share/openocd
+export OPENOCD_BIN = openocd
+export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
+
+
+#FLASH #############
+
+    OPENOCD_FLASH_CMDS += -c 'reset halt' 
+    OPENOCD_FLASH_CMDS += -c 'sleep 10'  
+    OPENOCD_FLASH_CMDS += -c 'flash protect 0 0 7 off' 
+	OPENOCD_FLASH_CMDS += -c 'halt'
+	OPENOCD_FLASH_CMDS += -c 'flash write_image erase $(HEXFILE) 0 ihex' 
+    OPENOCD_FLASH_CMDS += -c 'reset run' 
+	OPENOCD_FLASH_CMDS += -c shutdown 
+
+
+#ERASE #############
+
+    OPENOCD_ERASE_CMDS += -c 'reset halt'
+    OPENOCD_ERASE_CMDS += -c 'sleep 10'
+    OPENOCD_ERASE_CMDS += -c 'flash erase_address 0x08000000 0x00080000'
+    OPENOCD_ERASE_CMDS += -c shutdown
+
+
+.flash:
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS) 
+
+
+.erase: 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_ERASE_CMDS) 
+
+
+
+
+#######################
+
+
+
 # Stlink folder
 STLINK = stlink/bin
 
