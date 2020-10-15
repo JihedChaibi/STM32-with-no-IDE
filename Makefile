@@ -41,7 +41,7 @@ all: first_test
 first_test: $(PROJ_NAME).elf
 
 $(PROJ_NAME).elf: $(SRCS)
-	$(CC) $(CFLAGS) $^ -o output/$@ -o output/$(PROJ_NAME).s
+	$(CC) $(CFLAGS) $^ -o output/$@
 	$(OBJCOPY) -O ihex output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex
 	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
 
