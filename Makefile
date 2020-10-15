@@ -113,7 +113,7 @@ run: check_os
 	
 	
 debug: check_os
-	$(OPENOCD_BIN) -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c init $(OPENOCD_DEBUG_CMDS) 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_DEBUG_CMDS) 
 
 
 gdb:
