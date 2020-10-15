@@ -2,6 +2,59 @@
 
 
 
+#######################
+
+# Binaries will be generated with this name (.elf, .bin, .hex, etc)
+PROJ_NAME=first_test
+
+#######################################################################################
+
+CC=arm-none-eabi-gcc
+OBJCOPY=arm-none-eabi-objcopy
+
+# Source Files
+
+SRCS = src/*.c
+SRCS += Drivers/src/*.c
+
+SRCS +=  Startup/startup_stm32.S
+
+# Compiler Flags
+
+CFLAGS  = -g -O0 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
+CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
+CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+CFLAGS += --specs=nosys.specs
+
+# Header Files (-I flag)
+
+CFLAGS += -I include/
+CFLAGS += -I Drivers/inc/
+CFLAGS += -I CMSIS/Include/
+
+#######################################################################################
+
+.PHONY: first_test
+
+all: first_test
+
+first_test: $(PROJ_NAME).elf
+
+$(PROJ_NAME).elf: $(SRCS)
+	$(CC) $(CFLAGS) $^ -o output/$@ -o output/$(PROJ_NAME).s
+	$(OBJCOPY) -O ihex output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex
+	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
+
+clean:
+	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
+	@echo "clean as a whistle!"
+
+############################################
+
+
+
+
+
 ####OPENOCD SHIT#####
 
 
@@ -66,55 +119,7 @@ debug: check_os
 gdb:
 	gdb-multiarch -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
 
-
-#######################
-
-# Binaries will be generated with this name (.elf, .bin, .hex, etc)
-PROJ_NAME=first_test
-
-#######################################################################################
-
-CC=arm-none-eabi-gcc
-OBJCOPY=arm-none-eabi-objcopy
-
-# Source Files
-
-SRCS = src/*.c
-SRCS += Drivers/src/*.c
-
-SRCS +=  Startup/startup_stm32.S
-
-# Compiler Flags
-
-CFLAGS  = -g -O0 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
-CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
-CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
-CFLAGS += --specs=nosys.specs
-
-# Header Files (-I flag)
-
-CFLAGS += -I include/
-CFLAGS += -I Drivers/inc/
-CFLAGS += -I CMSIS/Include/
-
-#######################################################################################
-
-.PHONY: first_test
-
-all: first_test
-
-first_test: $(PROJ_NAME).elf
-
-$(PROJ_NAME).elf: $(SRCS)
-	$(CC) $(CFLAGS) $^ -o output/$@ -o output/$(PROJ_NAME).s
-	$(OBJCOPY) -O ihex output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex
-	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
-
-clean:
-	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
-	@echo "clean as a whistle!"
-
-############################################
+##################################### CHECK OS #########################
 
 check_os:
 ifeq ($(OS),Windows_NT)
