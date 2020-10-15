@@ -47,19 +47,19 @@ export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
 #.openocd: 
 #$(OPENOCD_BIN) -f $(OPENOCD_BOARD) 
 
-flash:
+flash: check_os
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS) 
 
 
-erase: 
+erase: check_os
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_ERASE_CMDS) 
 
 
-run: 
+run: check_os
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_RUN_CMDS) 
 	
 	
-debug: 
+debug: check_os
 	$(OPENOCD_BIN) -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c init $(OPENOCD_DEBUG_CMDS) 
 
 
@@ -119,9 +119,12 @@ clean:
 check_os:
 ifeq ($(OS),Windows_NT)
 OSFLAG += Windows
+OPENOCD_PATH = C:/openocd
+
 else
 ifeq ($(shell uname -s),Linux)
 OSFLAG += Linux
+OPENOCD_PATH = /usr/share/openocd
 endif
 endif
 
