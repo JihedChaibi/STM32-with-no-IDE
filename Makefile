@@ -118,7 +118,7 @@ debug: check_os
 
 
 gdb:
-	$(GDB) --eval-command="target remote localhost:3333" ./output/first_test.elf
+	$(GDB) -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
 
 ##################################### CHECK OS #########################
 
