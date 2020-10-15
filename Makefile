@@ -10,6 +10,7 @@ PROJ_NAME=first_test
 #######################################################################################
 
 CC=arm-none-eabi-gcc
+GDB=gdb-multiarch
 OBJCOPY=arm-none-eabi-objcopy
 
 # Source Files
@@ -117,7 +118,7 @@ debug: check_os
 
 
 gdb:
-	gdb-multiarch -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
+	$(GDB) -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
 
 ##################################### CHECK OS #########################
 
@@ -125,11 +126,13 @@ check_os:
 ifeq ($(OS),Windows_NT)
 OSFLAG += Windows
 OPENOCD_PATH = C:/openocd
+GDB=arm-none-eabi-gdb
 
 else
 ifeq ($(shell uname -s),Linux)
 OSFLAG += Linux
 OPENOCD_PATH = /usr/share/openocd
+GDB=gdb-multiarch 
 endif
 endif
 
