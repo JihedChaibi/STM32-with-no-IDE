@@ -70,7 +70,7 @@ $ cd STM32-with-no-IDE
 ```
   $ make debug
 ```
-* OPEN ANOTHER TERMINAL WINDOW :
+* OPEN ANOTHER TERMINAL WINDOW, AND LET THE FUN BEGIN :
 ```
   $ make gdb
 ```
