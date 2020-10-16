@@ -75,13 +75,13 @@ export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
 
 ############# FLASH #############
 
-    OPENOCD_FLASH_CMDS += -c 'reset halt' 
-    OPENOCD_FLASH_CMDS += -c 'sleep 10'  
-    OPENOCD_FLASH_CMDS += -c 'flash protect 0 0 7 off' 
+    OPENOCD_FLASH_CMDS += -c 'reset halt'
+    OPENOCD_FLASH_CMDS += -c 'sleep 10'
+    OPENOCD_FLASH_CMDS += -c 'flash protect 0 0 7 off'
     OPENOCD_FLASH_CMDS += -c 'halt'
-    OPENOCD_FLASH_CMDS += -c 'flash write_image erase $(HEXFILE) 0 ihex' 
-    OPENOCD_FLASH_CMDS += -c shutdown 
-    export OPENOCD_FLASH_CMDS 
+    OPENOCD_FLASH_CMDS += -c 'flash write_image erase $(HEXFILE) 0 ihex'
+    OPENOCD_FLASH_CMDS += -c shutdown
+    export OPENOCD_FLASH_CMDS
 
 
 ############# ERASE #############
@@ -96,33 +96,29 @@ export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
 
 ############# DEBUG #############
 
-    OPENOCD_DEBUG_CMDS += -c 'halt' 
-    OPENOCD_DEBUG_CMDS += -c 'sleep 10' 
-    export OPENOCD_DEBUG_CMDS 
+    OPENOCD_DEBUG_CMDS += -c 'halt'
+    OPENOCD_DEBUG_CMDS += -c 'sleep 10'
+    export OPENOCD_DEBUG_CMDS
 
 
 ########################################################################
 
 flash: check_os
-	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS) 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS)
 
 
 erase: check_os
-	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_ERASE_CMDS) 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_ERASE_CMDS)
 
 
 run: check_os
-	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_RUN_CMDS) 
-	
-	
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_RUN_CMDS)
+
 debug: check_os
-	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_DEBUG_CMDS) 
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_DEBUG_CMDS)
 
-
-gdb:
-	$(GDB) -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
-
-
+gdb: check_os
+	$(GDB) $(GDB_FLAGS) --eval-command="target extended-remote localhost:3333" ./output/first_test.elf
 
 ##################################### CHECK OS #########################
 
@@ -131,12 +127,14 @@ ifeq ($(OS),Windows_NT)
 OSFLAG += Windows
 OPENOCD_PATH = C:/openocd
 GDB=arm-none-eabi-gdb
+GDB_FLAGS=''
 
 else
 ifeq ($(shell uname -s),Linux)
 OSFLAG += Linux
 OPENOCD_PATH = /usr/share/openocd
-GDB=gdb-multiarch 
+GDB=gdb-multiarch
+GDB_FLAGS=-tui
 endif
 endif
 
