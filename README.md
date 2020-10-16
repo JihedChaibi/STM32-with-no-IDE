@@ -21,9 +21,8 @@
 
 ✪ GNU ARM Embedded Toolchain (Compiler/Other Tools)
 
-✪ ST-Link* (If You Want to Flash Directly From the Command Line): (Download/Install steps are below)
+✪ OpenOCD (If You Want to Flash/Debug Directly From the Command Line)
 
-✪ CMake (Required to install ST-Link Programming Tool)
 
 
 ###### :exclamation: :neutral_face: * IMPORTANT NOTE : For the time being ST-LINK only works for Linux users (you can still use any external programming tool, if you're a fan of GUIs). I am currently working on the Windows part, stay tuned. :pray:
@@ -47,18 +46,6 @@ $ git clone https://github.com/JihedChaibi/STM32-with-no-IDE
 ```
 $ cd STM32-with-no-IDE
 ```
-
-* DOWNLOAD ST-LINK PROGRAMMING TOOL :
-
-```
-$ make download_stlink
-```
-    
-* INSTALL ST-LINK PROGRAMMING TOOL :
-```
-  $ make install_stlink
-```
-
   
 * COMPILE THE DEMO CODE (src/main.c) :
 ```
@@ -66,7 +53,7 @@ $ make download_stlink
 ```
 * FLASH :
 ```
-  $ make burn
+  $ make flash
 ```
 * CLEAN BINARIES (OPTIONAL) :
 ```
@@ -76,11 +63,19 @@ $ make download_stlink
 ```
   $ make erase
 ```
+* START THE DEBUGGING SESSION :
+```
+  $ make debug
+```
+* OPEN ANOTHER TERMINAL WINDOW :
+```
+  $ make gdb
+```
 
 ## Short term goals : 
 
-- Supporting more microcontrollers families
-- Debugging from the command line
+- Debugging from the command line [DONE!] 
+- Windows support [DONE!]
 - Using CMake+GNU Make or CMake+Ninja as a main builder 
 
 ![Image of nucleo](https://i.redd.it/5ao2f5ufjzf51.jpg)
