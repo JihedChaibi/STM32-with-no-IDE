@@ -9,6 +9,10 @@
 ![Image of nucleo](https://i.ibb.co/qxH7V1D/FLLL.jpg)
 
 
+## :tada: GOOD NEWS :grin: : FROM NOW ON WE'LL USE OpenOCD & GDB FOR FLASHING AND DEBUGGING!
+
+
+
 ## What you will need : 
 
 ✪ Any Text Editor
@@ -23,9 +27,8 @@
 
 ✪ OpenOCD (If You Want to Flash/Debug Directly From the Command Line)
 
+✪ The GNU Debugger - GDB (arm-none-eabi-gdb OR gdb-multiarch)
 
-
-###### :exclamation: :neutral_face: * IMPORTANT NOTE : For the time being ST-LINK only works for Linux users (you can still use any external programming tool, if you're a fan of GUIs). I am currently working on the Windows part, stay tuned. :pray:
 
 
 ##
