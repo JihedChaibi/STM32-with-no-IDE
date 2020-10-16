@@ -118,7 +118,7 @@ debug: check_os
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_DEBUG_CMDS)
 
 gdb: check_os
-	$(GDB) $(GDB_FLAGS) --eval-command="target extended-remote localhost:3333" ./output/first_test.elf
+	$(GDB) $(GDB_FLAGS) --eval-command="target extended-remote localhost:3333" ./output/$(PROJ_NAME).elf
 
 ##################################### CHECK OS #########################
 
@@ -127,7 +127,7 @@ ifeq ($(OS),Windows_NT)
 OSFLAG += Windows
 OPENOCD_PATH = C:/openocd
 GDB=arm-none-eabi-gdb
-GDB_FLAGS=''
+GDB_FLAGS=
 
 else
 ifeq ($(shell uname -s),Linux)
