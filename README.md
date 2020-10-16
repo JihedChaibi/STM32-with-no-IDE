@@ -9,7 +9,7 @@
 ![Image of nucleo](https://i.ibb.co/qxH7V1D/FLLL.jpg)
 
 
-## :tada: GOOD NEWS :grin: : FROM NOW ON WE'LL USE OpenOCD & GDB FOR FLASHING AND DEBUGGING!
+## :tada: GOOD NEWS :grin: : FROM NOW ON WE'LL USE OpenOCD & GDB FOR FLASHING AND DEBUGGING, UNDER BOTH LINUX AND WINDOWS!
 
 
 
