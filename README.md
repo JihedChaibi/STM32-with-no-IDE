@@ -6,7 +6,7 @@
 
 ##
 
-![Image of nucleo](https://i.ibb.co/qxH7V1D/FLLL.jpg)
+![Image of nucleo](https://i.ibb.co/L956RGJ/FLLL2.jpg)
 
 
 ## :tada: GOOD NEWS :grin: : FROM NOW ON WE'LL USE OpenOCD & GDB FOR FLASHING AND DEBUGGING, UNDER BOTH LINUX AND WINDOWS!
