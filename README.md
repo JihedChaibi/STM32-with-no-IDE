@@ -77,9 +77,9 @@ $ cd STM32-with-no-IDE
 
 ## Short term goals : 
 
-- Debugging from the command line [DONE!] 
-- Windows support [DONE!]
-- Using CMake+GNU Make or CMake+Ninja as a main builder 
+- Debugging from the command line [:heavy_check_mark: DONE!] 
+- Windows support [:heavy_check_mark: DONE!] 
+- Using CMake+GNU Make or CMake+Ninja as a main builder [:recycle: IN PROGRESS]
 
 ![Image of nucleo](https://i.redd.it/5ao2f5ufjzf51.jpg)
 
