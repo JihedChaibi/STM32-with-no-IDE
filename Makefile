@@ -55,18 +55,22 @@ clean:
 
 
 
-
-####OPENOCD SHIT#####
+#### OPENOCD STUFF #####
 
 
 HEXFILE = ./output/first_test.hex
 ELFFILE = ./output/first_test.elf
 
+#The path of OpenOCD will change automatically according to the OS (using the check_os)
+#However, you can change it manually.
+
 OPENOCD_PATH = /usr/share/openocd
+
 export OPENOCD_BIN = openocd
+
+#I'm using the nucleo STM32F401RE (F4 family)
+#change this according to the family of your board
 export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
-
-
 
 
 ############# FLASH #############
@@ -97,9 +101,7 @@ export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
     export OPENOCD_DEBUG_CMDS 
 
 
-
-#.openocd: 
-#$(OPENOCD_BIN) -f $(OPENOCD_BOARD) 
+########################################################################
 
 flash: check_os
 	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS) 
@@ -119,6 +121,8 @@ debug: check_os
 
 gdb:
 	$(GDB) -tui --eval-command="target remote localhost:3333" ./output/first_test.elf
+
+
 
 ##################################### CHECK OS #########################
 
