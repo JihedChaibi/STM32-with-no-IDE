@@ -1,8 +1,8 @@
 # Makefile: Jihed Chaibi - 2020
 
 
-# Stlink folder
-STLINK = stlink/bin
+
+#######################
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=first_test
@@ -10,6 +10,7 @@ PROJ_NAME=first_test
 #######################################################################################
 
 CC=arm-none-eabi-gcc
+GDB=gdb-multiarch
 OBJCOPY=arm-none-eabi-objcopy
 
 # Source Files
@@ -21,7 +22,7 @@ SRCS +=  Startup/startup_stm32.S
 
 # Compiler Flags
 
-CFLAGS  = -g -O2 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
+CFLAGS  = -g -O0 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
@@ -49,40 +50,91 @@ clean:
 	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
 	@echo "clean as a whistle!"
 
-# Flash the STM32F4
-burn: first_test
-ifeq ($(OS),Windows_NT)
-	@echo "Oops! looks like you are using Windows, which is not supported yet :-("
-	@echo "You can manually install stlink or use an external tool to program your microcontroller"
-	@echo "You can use this HEX file: output/$(PROJ_NAME).hex"
-
-else
-ifeq ($(shell uname -s),Linux)
-	@echo "If st-link is not istalled, type 'make install_stlink'"
-	@echo ""
-	$(STLINK)/st-flash --reset write output/$(PROJ_NAME).bin 0x08000000
-endif
-endif
+############################################
 
 
-download_stlink:
-	$(shell git clone https://github.com/stlink-org/stlink)
-
-install_stlink:
-	cd stlink && cmake .
-	cd stlink && make
 
 
-erase:
-	$(STLINK)/st-flash erase
+#### OPENOCD STUFF #####
 
+
+HEXFILE = ./output/first_test.hex
+ELFFILE = ./output/first_test.elf
+
+#The path of OpenOCD will change automatically according to the OS (using the check_os)
+#However, you can change it manually.
+
+OPENOCD_PATH = /usr/share/openocd
+
+export OPENOCD_BIN = openocd
+
+#I'm using the nucleo STM32F401RE (F4 family)
+#change this according to the family of your board
+export OPENOCD_BOARD = $(OPENOCD_PATH)/scripts/board/st_nucleo_f4.cfg
+
+
+############# FLASH #############
+
+    OPENOCD_FLASH_CMDS += -c 'reset halt'
+    OPENOCD_FLASH_CMDS += -c 'sleep 10'
+    OPENOCD_FLASH_CMDS += -c 'flash protect 0 0 7 off'
+    OPENOCD_FLASH_CMDS += -c 'halt'
+    OPENOCD_FLASH_CMDS += -c 'flash write_image erase $(HEXFILE) 0 ihex'
+    OPENOCD_FLASH_CMDS += -c shutdown
+    export OPENOCD_FLASH_CMDS
+
+
+############# ERASE #############
+
+    OPENOCD_ERASE_CMDS += -c 'reset halt'
+    OPENOCD_ERASE_CMDS += -c 'sleep 10'
+    OPENOCD_ERASE_CMDS += -c 'sleep 10'
+    OPENOCD_ERASE_CMDS += -c 'flash erase_address 0x08000000 0x00080000'
+    OPENOCD_ERASE_CMDS += -c shutdown
+    export OPENOCD_ERASE_CMDS
+
+
+############# DEBUG #############
+
+    OPENOCD_DEBUG_CMDS += -c 'halt'
+    OPENOCD_DEBUG_CMDS += -c 'sleep 10'
+    export OPENOCD_DEBUG_CMDS
+
+
+########################################################################
+
+flash: check_os
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_FLASH_CMDS)
+
+
+erase: check_os
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_ERASE_CMDS)
+
+
+run: check_os
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_RUN_CMDS)
+
+debug: check_os
+	$(OPENOCD_BIN) -f $(OPENOCD_BOARD) -c init $(OPENOCD_DEBUG_CMDS)
+
+gdb: check_os
+	$(GDB) $(GDB_FLAGS) --eval-command="target remote localhost:3333" ./output/$(PROJ_NAME).elf
+
+##################################### CHECK OS #########################
 
 check_os:
 ifeq ($(OS),Windows_NT)
 OSFLAG += Windows
+OPENOCD_PATH = C:/openocd
+GDB=arm-none-eabi-gdb
+GDB_FLAGS=
+
 else
 ifeq ($(shell uname -s),Linux)
 OSFLAG += Linux
+OPENOCD_PATH = /usr/share/openocd
+GDB=gdb-multiarch
+GDB_FLAGS=-tui
 endif
 endif
 

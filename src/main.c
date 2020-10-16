@@ -8,7 +8,7 @@ YOU CAN REPLACE IT WITH YOUR CODE
 #include <stdint.h>
 #include "stm32f4xx.h"
 
-void demo_delay()
+void delay()
 {
     volatile uint64_t k;
     for(k=0;k<9000000;k++);
@@ -27,9 +27,9 @@ int main()
     for (;;) {
 
        GPIOA->ODR |= (1 << 5);           // Set pin to HIGH
-       demo_delay();
+       delay();
        GPIOA->ODR &= ~(1 << 5);           // Set pin to LOW
-       demo_delay();
+       delay();
     }
 
     return 0;
