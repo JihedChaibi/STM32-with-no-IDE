@@ -23,6 +23,7 @@ SRCS +=  Startup/startup_stm32.S
 # Compiler Flags
 
 CFLAGS  = -g -O0 -Wall -T LinkerScript.ld -D USE_STDPERIPH_DRIVER
+CFLAGS += -o output/$(PROJ_NAME).o -Wl,-Map=output/$(PROJ_NAME).map 
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
@@ -47,7 +48,7 @@ $(PROJ_NAME).elf: $(SRCS)
 	$(OBJCOPY) -O binary output/$(PROJ_NAME).elf output/$(PROJ_NAME).bin
 
 clean:
-	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin
+	rm -f *.o output/$(PROJ_NAME).elf output/$(PROJ_NAME).hex output/$(PROJ_NAME).bin output/$(PROJ_NAME).map
 	@echo "clean as a whistle!"
 
 ############################################
